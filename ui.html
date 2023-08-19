@@ -1,0 +1,90 @@
+<h2>Color Gradient</h2>
+
+
+<form id="pluginForm">
+  <fieldset>
+      <legend>Color information</legend>
+  
+      <p>
+        <label for="colorCode">Color</label>
+        <input type="color" id="colorCode" name="colorCode" value="#F5446">
+      </p>
+      <p>
+        <label for="colorName">Color name</label>
+        <input type="text" id="colorName" name="colorName" value="Primary">
+      </p>
+      <p>
+        <label for="tintNumber">Number of tints</label>
+        <input type="number" id="tintNumber" name="tintNumber" value="10" min="1" max="10">
+      </p>
+  </fieldset>
+
+  
+
+  <fieldset>
+    <legend>Frame information</legend>
+
+    <p>
+      <label for="circleSize">Circle size</label>
+      <input type="number" id="circleSize" name="circleSize" value="120" min="48">
+    </p>
+    <p>
+      <label for="circleSpacing">Circle spacing</label>
+      <input type="number" id="circleSpacing" name="circleSpacing" value="32" min="0">
+    </p>
+    <p>
+      <label for="frameH">Horizontal</label>
+      <input type="radio" id="frameH" name="direction" checked>
+      
+      <label for="frameV">Vertical</label>
+      <input type="radio" id="frameV" name="direction" checked>     
+    </p>
+  </fieldset>
+
+  <input type="hidden" name="frameDirection" value="horizontal">
+
+  <div id="button">
+    <button id="generate">Generate tints</button>
+    <button id="cancel">Cancel</button>
+  </div>
+  
+</form>
+
+<script>
+  document.getElementById('generate').onclick = (event) => {
+    event.preventDefault()
+    let pluginForm = document.querySelector('#pluginForm')
+
+    let pluginFormData = new FormData(pluginForm);
+
+    if (document.querySelector('#frameV').checked){
+      pluginFormData.set('frameDirection', 'vertical')
+    }
+
+    let formDataObj = {}
+
+    for (let [key, value] of pluginFormData) {
+      formDataObj[key] = value
+    }
+
+    parent.postMessage({pluginMessage: {type: 'actionGenerate', formDataObj}}, '*')
+  }
+
+  document.getElementById('cancel').onclick = (event) => {
+    parent.postMessage({pluginMessage: {type: 'actionExit'}}, '*')
+  }
+</script>
+<style>
+  label{
+    display: block;
+  }
+
+  #generate{
+    background-color: rgb(0, 92, 230);
+    color: aliceblue;
+  }
+
+#button{
+  margin-top: 10px;
+}
+</style>
