@@ -27,11 +27,11 @@ For more information, visit https://www.typescriptlang.org/
 Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
 for the browser to run.
 
-We recommend writing TypeScript code using Visual Studio code:
+I recommend writing TypeScript code using Visual Studio code:
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
++ Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
++ Open this directory in Visual Studio Code.
++ Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
     then select "npm: watch". You will have to do this again every time
     you reopen Visual Studio Code.
 
