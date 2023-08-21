@@ -38,4 +38,4 @@ I recommend writing TypeScript code using Visual Studio code:
 That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
 
 ## The result is in the Figma
-
+![image](/Img/result.png)
